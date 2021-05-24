@@ -1,0 +1,38 @@
+.inputWrapper {
+  margin: 10px 15px 10px 15px;
+}
+
+.input {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  color: white;
+  font-weight: bold;
+}
+
+.input::placeholder {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.results {
+  padding: 15px;
+}
+
+.result {
+  color: white;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.result img {
+  height: 32px;
+}
