@@ -1,0 +1,16 @@
+.header {
+    padding-left: 3rem;
+}
+
+.link {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px;
+    display: inline-block;
+}
+
+.current {
+    border-bottom: 4px solid white;
+}

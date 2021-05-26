@@ -54,6 +54,10 @@
   display: none;
 }
 
+html {
+  font-size: 14px;
+}
+
 html, body {
   margin: 0;
   padding: 0;

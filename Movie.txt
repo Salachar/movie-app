@@ -1,0 +1,36 @@
+Movie
+  IMDB key ''
+  OMDB key (if it exists) ''
+
+  OMDB Data?
+    - probably better to pull the fields out and construct my own instead of blobbing it
+
+  Upvotes #
+  Downvotes #
+  Order/Rank #
+  Watched bool
+  Rating #
+
+
+
+Poster: "https://m.media-amazon.com/images/M/MV5BNGNiNmU2YTMtZmU4OS00MjM0LTlmYWUtMjVlYjAzYjE2N2RjXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg"
+Title: "The Bourne Ultimatum"
+Type: "movie"
+Year: "2007"
+imdbID: "tt0440963"
+
+CREATE TABLE movies (
+    id SERIAL PRIMARY KEY,
+    imdb_id character varying DEFAULT null,
+    title character varying DEFAULT null,
+    type character varying DEFAULT null,
+    year character varying DEFAULT null,
+    poster character varying DEFAULT null,
+    upvotes character varying DEFAULT null,
+    downvotes character varying DEFAULT null,
+    rank character varying DEFAULT null,
+    rating character varying DEFAULT null,
+    watched boolean DEFAULT false,
+    created_at timestamp without time zone DEFAULT timezone('utc'::text, now()),
+    updated_at timestamp without time zone DEFAULT timezone('utc'::text, now())
+)

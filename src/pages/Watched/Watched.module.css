@@ -1,0 +1,15 @@
+.list {
+  padding: 15px;
+}
+
+.movie {
+  color: white;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.movie img {
+  height: 32px;
+}

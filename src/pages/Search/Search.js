@@ -1,44 +1,69 @@
-import React from 'react';
+import React, { useEffect  } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  getSuggestions,
-  selectSuggestions,
+    getSuggestions,
+    selectSuggestions,
 } from './searchSlice';
+
+import {
+    getMovies as getUnwatchedMovies,
+    selectMoviesByID as selectUnwatchedMovies,
+} from '../Watch/watchSlice';
+import {
+    getMovies as getWatchedMovies,
+    selectMoviesByID as selectWatchedMovies,
+} from '../Watched/watchedSlice';
+
+import { Movie } from '../../components/Movie/Movie';
 
 import styles from './Search.module.css';
 
 export function Search() {
-  const dispatch = useDispatch();
-  const suggestions = useSelector(selectSuggestions);
+    const dispatch = useDispatch();
+    const suggestions = useSelector(selectSuggestions);
+    const watched_movies = useSelector(selectWatchedMovies);
+    const unwatched_movies = useSelector(selectUnwatchedMovies);
 
-  console.log(suggestions);
+    useEffect(() => {
+        dispatch(getUnwatchedMovies());
+        dispatch(getWatchedMovies());
+    }, []);
 
-  return (
-    <div>
-      <div className={styles.inputWrapper}>
-        <input
-          className={styles.input}
-          placeholder="Search for movies"
-          onKeyUp={(e) => {
-            const { key, currentTarget } = e;
-            if (key.toLowerCase() !== 'enter') return;
-            const search_text = currentTarget.value;
-            dispatch(getSuggestions(search_text));
-          }}
-        />
-      </div>
+    console.log(watched_movies);
+    console.log(unwatched_movies);
 
-      <div className={styles.results}>
-        {suggestions.map((suggestion) => {
-          return (
-            <div className={styles.result}>
-              <img src={`${suggestion.Poster}`} />
-              <span>{suggestion.Title}</span>
+    // let watched = false;
+    // let unwatched = false;
+
+    return (
+        <div>
+            <div className={styles.inputWrapper}>
+                <input
+                    className={styles.input}
+                    placeholder="Search for movies"
+                    onKeyUp={(e) => {
+                        const { key, currentTarget } = e;
+                        if (key.toLowerCase() !== 'enter') return;
+                        const search_text = currentTarget.value;
+                        dispatch(getSuggestions(search_text));
+                    }}
+                />
             </div>
-          );
-        })}
-      </div>
-    </div>
-  );
+
+            <div className={styles.results}>
+                {suggestions.map((suggestion) => {
+                    return (
+                        <Movie
+                            key={suggestion.imdb_id}
+                            movie={suggestion}
+                            add
+                            inWatchedList={Boolean(watched_movies[suggestion.imdb_id])}
+                            inUnwatchedList={Boolean(unwatched_movies[suggestion.imdb_id])}
+                        />
+                    );
+                })}
+            </div>
+        </div>
+    );
 }

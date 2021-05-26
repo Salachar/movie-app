@@ -1,5 +1,11 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchSuggestions } from './searchAPI';
+import {
+  createAsyncThunk,
+  createSlice,
+} from '@reduxjs/toolkit';
+
+import {
+  fetchSuggestions,
+} from './searchAPI';
 
 const initialState = {
   suggestions: [],
@@ -24,7 +30,7 @@ export const searchSlice = createSlice({
     [getSuggestions.fulfilled]: (state, action) => {
       state.status = 'idle';
       state.suggestions = action.payload || [];
-    }
+    },
   },
 });
 

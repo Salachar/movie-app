@@ -1,0 +1,99 @@
+.movie {
+    position: relative;
+    color: white;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    margin: 2rem 1rem 2rem 1rem;
+    vertical-align: top;
+}
+
+.movie img {
+    width: 14rem;
+    height: 21rem;
+    margin-bottom: 1rem;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.info {
+    width: 14rem;
+    margin-bottom: 1rem;
+
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    min-height: 2.5rem;
+    line-height: 1.25rem;
+}
+
+.buttons {
+    margin-top: 1rem;
+}
+
+.button {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0.5rem;
+    line-height: 1.8rem;
+    text-align: center;
+    font-weight: 900;
+    font-size: 3rem;
+    float: right;
+}
+
+.watch, .add, .inList {
+    height: 1.25rem;
+    padding: 0.25rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    line-height: 1.25rem;
+    transition: all 0.25s ease;
+    border-radius: 0.5rem;
+}
+.watch:hover, .add:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    line-height: 1.6rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    text-align: center;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.remove:hover {
+    color: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+}
+.remove:active {
+    color: rgba(255, 0, 0, 0.7);
+}
+
+
+
+.inList {
+    cursor: default;
+    opacity: 0.5;
+    background-color: rgba(100, 255, 100, 0.2);
+}
