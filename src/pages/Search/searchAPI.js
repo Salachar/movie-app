@@ -1,6 +1,6 @@
 const OMDB_API_KEY = 46835371;
 const OMDB_API_PARAMS = `type=movie&r=json`;
-const OMDB_BASE_URL = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&${OMDB_API_PARAMS}`;
+const OMDB_BASE_URL = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&${OMDB_API_PARAMS}`;
 
 export function fetchSuggestions (search_text = '') {
   return new Promise((resolve) => {
