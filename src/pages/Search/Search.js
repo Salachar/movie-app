@@ -5,7 +5,6 @@ import {
     getSuggestions,
     selectSuggestions,
 } from './searchSlice';
-
 import {
     getMovies as getUnwatchedMovies,
     selectMoviesByID as selectUnwatchedMovies,
@@ -30,12 +29,6 @@ export function Search() {
         dispatch(getWatchedMovies());
     }, []);
 
-    console.log(watched_movies);
-    console.log(unwatched_movies);
-
-    // let watched = false;
-    // let unwatched = false;
-
     return (
         <div>
             <div className={styles.inputWrapper}>
@@ -58,6 +51,10 @@ export function Search() {
                             key={suggestion.imdb_id}
                             movie={suggestion}
                             add
+                            onAdd={() => {
+                                dispatch(getUnwatchedMovies());
+                                dispatch(getWatchedMovies());
+                            }}
                             inWatchedList={Boolean(watched_movies[suggestion.imdb_id])}
                             inUnwatchedList={Boolean(unwatched_movies[suggestion.imdb_id])}
                         />

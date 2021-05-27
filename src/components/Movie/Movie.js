@@ -16,7 +16,9 @@ export function Movie(props) {
     const {
         add = false,
         movie = {},
+        onAdd = () => {},
         onWatch = () => {},
+        onRemove = () => {},
         inWatchedList = false,
         inUnwatchedList = false,
     } = props;
@@ -24,19 +26,21 @@ export function Movie(props) {
         watched = false
     } = movie;
 
-    console.log(inWatchedList, inUnwatchedList);
-
     return (
         <div className={styles.movie}>
             {!add && (
                 <div
                     className={styles.remove}
                     onClick={(e) => {
-                        dispatch(removeMovie(movie));
+                        dispatch(removeMovie(movie)).then(() => {
+                            onRemove();
+                        });
                     }}
                 >{String.fromCharCode('215')}</div>
             )}
-            <img src={`${movie.poster}`} alt="" />
+            <img src={`${movie.poster}`} alt="" onError={(e) => {
+                e.currentTarget.style.visibility = 'hidden';
+            }} />
             <div className={styles.info}>
                 <div className={styles.title}>{movie.title}</div>
             </div>
@@ -44,7 +48,9 @@ export function Movie(props) {
                 <div
                     className={styles.add}
                     onClick={(e) => {
-                        dispatch(addMovie(movie));
+                        dispatch(addMovie(movie)).then(() => {
+                            onAdd();
+                        });
                     }}
                 >Add to watch list</div>
             )}

@@ -1,53 +1,10 @@
 :root {
-  /* --article-size: 4rem; */
-  --article-size: 4.5rem;
-
-  --header-height: 4rem;
-
-
-    /*
-    | elevation | overlay |   hex   |
-    | --------- | ------- | ------- |
-    |   00dp    |    0%   | #121212 |
-    |   01dp    |    5%   | #1e1e1e |
-    |   02dp    |    7%   | #222222 |
-    |   03dp    |    8%   | #242424 |
-    |   04dp    |    9%   | #272727 |
-    |   06dp    |   11%   | #2c2c2c |
-    |   08dp    |   12%   | #2e2e2e |
-    |   12dp    |   14%   | #333333 |
-    |   16dp    |   15%   | #343434 |
-    |   24dp    |   16%   | #383838 |
-    */
-
-    --color-00dp: #121212;
-    --color-01dp: #1e1e1e;
-    --color-02dp: #222222;
-    --color-03dp: #242424;
-    --color-04dp: #272727;
-    --color-06dp: #2c2c2c;
-    --color-08dp: #2e2e2e;
-    --color-12dp: #333333;
-    --color-16dp: #343434;
-    --color-24dp: #383838;
-
-    --color-primary: rgb(120 200 200);
-
     --color-font-main: #DEDEDE;
     --color-font-secondary: #AAA;
     --color-font-tertiary: #999;
 
-    --color-main-header: var(--color-02dp);
-    --color-sub-header: var(--color-02dp);
-    --color-main-bg: var(--color-00dp);
-    --color-side-menu: var(--color-02dp);
-    --color-post: var(--color-01dp);
-
-    --color-shadow: #090909;
-    --shadow-el-0: 0 0px 0px var(--color-shadow);
-    --shadow-el-1: 0 2px 2px var(--color-shadow);
-    --shadow-el-2: 0 4px 4px var(--color-shadow);
-    --shadow-el-3: 0 6px 6px var(--color-shadow);
+    --color-main-bg: #333;
+    --color-movie-bg: #555;
 }
 
 *::-webkit-scrollbar {
