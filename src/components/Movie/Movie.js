@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 
 import {
     addMovie,
@@ -43,6 +43,12 @@ export function Movie(props) {
             }} />
             <div className={styles.info}>
                 <div className={styles.title}>{movie.title}</div>
+                <a
+                    className={styles.link}
+                    href={`https://www.imdb.com/title/${movie.imdb_id}/`}
+                    target="_blank"
+                    rel="noreferrer"
+                >View on IMDB</a>
             </div>
             {(add && !inWatchedList && !inUnwatchedList) && (
                 <div
