@@ -1,20 +1,32 @@
 .movie {
+    --poster-height: 20rem;
+
     position: relative;
-    color: white;
-    padding: 1rem;
+    display: inline-grid;
+    grid-template-columns: calc(var(--poster-height) * 0.675) 24rem;
+    grid-template-rows: var(--poster-height) 3rem;
+    grid-template-areas:
+        "poster info"
+        "watch info";
+
     background-color: var(--color-movie-bg);
-    border-radius: 0.25rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    margin: 2rem 1rem 2rem 1rem;
-    vertical-align: top;
+    padding: 1rem;
+    margin: 1rem;
+    color: white;
+    box-sizing: border-box;
     box-shadow: 0 2px 4px #111;
+    border-radius: 0.25rem;
 }
 
+
+/**********************************************************
+    POSTER
+**********************************************************/
+
 .movie img {
-    width: 14rem;
-    height: 21rem;
-    margin-bottom: 1rem;
+    grid-area: poster;
+    height: var(--poster-height);
+    width: calc(var(--poster-height) * 0.675);
     object-fit: contain;
     background-color: rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
@@ -22,47 +34,76 @@
     overflow: hidden;
 }
 
-.info {
-    width: 14rem;
-    margin-bottom: 0.5rem;
-}
 
-.link {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    color: rgb(126 184 255);
-    font-weight: bold;
-    text-shadow: 1px 1px black;
+/**********************************************************
+    INFO
+**********************************************************/
+
+.info {
+    grid-area: info;
+    padding-left: 1rem;
+    overflow-y: scroll;
 }
 
 .title {
     text-align: center;
     font-weight: bold;
-    font-size: 1.1rem;
-    height: 2.5rem;
-    line-height: 1.25rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.3rem;
+    height: 2rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
     overflow: hidden;
     text-shadow: 1px 1px black;
 }
 
-.buttons {
-    margin-top: 1rem;
+.details {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
-.button {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 0.5rem;
-    line-height: 1.8rem;
+.details > span {
+    margin-right: 1rem;
+}
+
+.cast {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.plot {
+    font-size: 1rem;
+}
+
+
+/**********************************************************
+    RATINGS
+**********************************************************/
+
+.ratings {
+    /* grid-area: ratings; */
+    line-height: 1.5rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-bottom: 0.5rem;
+    /* padding-left: 1rem; */
+    font-weight: bold;
+}
+
+.imdb_link {
     text-align: center;
-    font-weight: 900;
-    font-size: 3rem;
-    float: right;
+    text-decoration: none;
+    color: rgb(126 184 255);
+    text-shadow: 1px 1px black;
+    margin-right: 1rem;
 }
 
-.watch, .add {
+
+/**********************************************************
+    BUTTONS
+**********************************************************/
+
+.watch, .add, .loadData {
     height: 1.25rem;
     padding: 0.25rem;
     text-transform: uppercase;
@@ -77,8 +118,14 @@
     box-shadow: 0 2px 2px #333;
     text-shadow: 1px 1px black;
 }
+
 .watch:hover, .add:hover {
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+.watch {
+    grid-area: watch;
+    margin-top: 1rem;
 }
 
 .remove {
@@ -99,10 +146,12 @@
     background-color: #777;
     opacity: 0.5;
 }
+
 .remove:hover {
     color: rgba(255, 100, 100, 1);
     opacity: 1;
 }
+
 .remove:active {
     background-color: #CCC;
 }

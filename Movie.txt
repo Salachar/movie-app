@@ -34,3 +34,43 @@ CREATE TABLE movies (
     created_at timestamp without time zone DEFAULT timezone('utc'::text, now()),
     updated_at timestamp without time zone DEFAULT timezone('utc'::text, now())
 )
+
+ALTER TABLE movies
+ADD COLUMN rated character varying DEFAULT null,
+ADD COLUMN released character varying DEFAULT null,
+ADD COLUMN runtime character varying DEFAULT null,
+ADD COLUMN genre character varying DEFAULT null,
+ADD COLUMN plot character varying DEFAULT null,
+ADD COLUMN imdb_rating character varying DEFAULT null,
+ADD COLUMN rotten_tomatoes_rating character varying DEFAULT null;
+
+
+ALTER TABLE movies
+ADD COLUMN director character varying DEFAULT null,
+ADD COLUMN actors character varying DEFAULT null;
+
+
+
+{
+	"Rated": "R",
+	"Released": "25 May 2017",
+	"Runtime": "116 min",
+	"Genre": "Action, Comedy, Crime",
+	"Plot": "Devoted lifeguard Mitch Buchannon butts heads with a brash new recruit, as they uncover a criminal plot that threatens the future of the bay.",
+
+
+	"Ratings": [{
+		"Source": "Internet Movie Database",
+		"Value": "5.5/10"
+	}, {
+		"Source": "Rotten Tomatoes",
+		"Value": "18%"
+	}, {
+		"Source": "Metacritic",
+		"Value": "37/100"
+	}],
+	"Metascore": "37",
+	"imdbRating": "5.5",
+
+}
+

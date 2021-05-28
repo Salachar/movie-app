@@ -22,17 +22,85 @@
 }
 
 .results {
-  padding: 15px;
+    padding: 1rem;
 }
 
-.result {
-  color: white;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  margin-bottom: 15px;
-}
+.movie {
+    --poster-height: 24rem;
 
-.result img {
-  height: 32px;
-}
+    position: relative;
+    color: white;
+    padding: 1rem;
+    background-color: var(--color-movie-bg);
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    margin: 2rem 1rem 2rem 1rem;
+    vertical-align: top;
+    box-shadow: 0 2px 4px #111;
+    box-sizing: border-box;
+    width: 48
+  }
+
+  .movie img {
+    height: var(--poster-height);
+    width: calc(var(--poster-height) * 0.675);
+    margin-bottom: 1rem;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    overflow: hidden;
+  }
+
+  .imdb_link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(126 184 255);
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    height: 2.5rem;
+    line-height: 1.25rem;
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+    text-shadow: 1px 1px black;
+    width: calc(var(--poster-height) * 0.675);
+  }
+
+.add {
+    height: 1.25rem;
+    padding: 0.25rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    line-height: 1.25rem;
+    transition: all 0.25s ease;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 2px #333;
+    text-shadow: 1px 1px black;
+  }
+ .add:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .inList {
+    height: 1.25rem;
+    padding: 0.25rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.25rem;
+    text-shadow: 1px 1px black;
+  }

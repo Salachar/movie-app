@@ -1,12 +1,13 @@
 import {
-  createAsyncThunk,
-  createSlice,
+    createAsyncThunk,
+    createSlice,
 } from '@reduxjs/toolkit';
 
 import {
-  postMovie,
-  patchMovie,
-  deleteMovie,
+    hydrateMovie,
+    postMovie,
+    patchMovie,
+    deleteMovie,
 } from './movieAPI';
 
 const initialState = {
@@ -15,6 +16,11 @@ const initialState = {
 };
 
 // THUNKS
+export const loadMovie = createAsyncThunk('movie/loadMovie', async (movie) => {
+    const response = await hydrateMovie(movie);
+    return response;
+});
+
 export const addMovie = createAsyncThunk('movie/addMovie', async (movie) => {
   const response = await postMovie(movie);
   return response;
@@ -36,6 +42,13 @@ export const movieSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
+    [loadMovie.pending]: (state) => {
+        console.log('getMovie movie loading');
+    },
+    [loadMovie.fulfilled]: (state, action) => {
+        console.log(action.payload);
+        console.log('getMovie movie fulfilled');
+    },
     [addMovie.pending]: (state) => {
       console.log('add movie loading');
     },

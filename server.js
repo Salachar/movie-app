@@ -19,6 +19,7 @@ app.get("/api", (req, res) => {
 app.get('/movies', movie.getMovies);
 app.get('/movies/watched', movie.getWatchedMovies);
 app.post('/movie', movie.postMovie);
+app.post('/movie/hydrate', movie.hydrateMovie);
 app.patch('/movie', movie.patchMovie);
 app.delete('/movie/:id', movie.deleteMovie);
 

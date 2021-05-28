@@ -34,6 +34,9 @@ export function Watched () {
                         onRemove={() => {
                             dispatch(getMovies());
                         }}
+                        onLoad={() => {
+                            dispatch(getMovies());
+                        }}
                     />
                 );
             })}

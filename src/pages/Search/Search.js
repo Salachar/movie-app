@@ -6,6 +6,9 @@ import {
     selectSuggestions,
 } from './searchSlice';
 import {
+    addMovie
+} from '../../components/Movie/movieSlice';
+import {
     getMovies as getUnwatchedMovies,
     selectMoviesByID as selectUnwatchedMovies,
 } from '../Watch/watchSlice';
@@ -13,8 +16,6 @@ import {
     getMovies as getWatchedMovies,
     selectMoviesByID as selectWatchedMovies,
 } from '../Watched/watchedSlice';
-
-import { Movie } from '../../components/Movie/Movie';
 
 import styles from './Search.module.css';
 
@@ -45,19 +46,37 @@ export function Search() {
             </div>
 
             <div className={styles.results}>
-                {suggestions.map((suggestion) => {
+                {suggestions.map((movie) => {
+                    const inWatchedList = Boolean(watched_movies[movie.imdb_id]);
+                    const inUnwatchedList = Boolean(unwatched_movies[movie.imdb_id]);
+                    const in_list = inUnwatchedList || inWatchedList;
+                    const imdb_url = `https://www.imdb.com/title/${movie.imdb_id}/`;
+
                     return (
-                        <Movie
-                            key={suggestion.imdb_id}
-                            movie={suggestion}
-                            add
-                            onAdd={() => {
-                                dispatch(getUnwatchedMovies());
-                                dispatch(getWatchedMovies());
-                            }}
-                            inWatchedList={Boolean(watched_movies[suggestion.imdb_id])}
-                            inUnwatchedList={Boolean(unwatched_movies[suggestion.imdb_id])}
-                        />
+                        <div className={styles.movie}>
+                            <img src={`${movie.poster}`} alt="" onError={(e) => {
+                                e.currentTarget.style.visibility = 'hidden';
+                            }} />
+
+                            <div className={styles.title}>{movie.title}</div>
+                            <a className={styles.imdb_link} href={imdb_url} target="_blank" rel="noreferrer" >View on IMDB</a>
+
+                            {!in_list && (
+                                <div
+                                    className={styles.add}
+                                    onClick={(e) => {
+                                        dispatch(addMovie(movie)).then(() => {
+                                            dispatch(getUnwatchedMovies());
+                                            dispatch(getWatchedMovies());
+                                        });
+                                    }}
+                                >Add to watch list</div>
+                            )}
+
+                            {in_list && (
+                                <div className={styles.inList}>{`In ${inWatchedList ? 'watched' : 'watch'} list`}</div>
+                            )}
+                        </div>
                     );
                 })}
             </div>
