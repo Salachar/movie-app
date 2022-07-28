@@ -1,9 +1,9 @@
 import React from 'react';
 import {
     BrowserRouter,
-    Switch,
+    Routes,
     Route,
-    Redirect,
+    Navigate,
 } from "react-router-dom";
 
 import { Header } from './components/Header/Header';
@@ -19,20 +19,12 @@ export function App () {
         <BrowserRouter>
             <div className="app">
                 <Header />
-                <Switch>
-                    <Route exact path="/">
-                        <Redirect to="/watch" />
-                    </Route>
-                    <Route exact path="/watch">
-                        <Watch />
-                    </Route>
-                    <Route exact path="/watched">
-                        <Watched />
-                    </Route>
-                    <Route path="/search">
-                        <Search />
-                    </Route>
-                </Switch>
+                <Routes>
+                    <Route path="*" element={<Watch />} />
+                    <Route path="/watch" element={<Watch />} />
+                    <Route path="/watched" element={<Watched />} />
+                    <Route path="/search" element={<Search />} />
+                </Routes>
             </div>
         </BrowserRouter>
     );

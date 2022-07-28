@@ -1,21 +1,21 @@
 .movie {
-    --poster-height: 20rem;
+  --poster-height: 20rem;
 
-    position: relative;
-    display: inline-grid;
-    grid-template-columns: calc(var(--poster-height) * 0.675) 24rem;
-    grid-template-rows: var(--poster-height) 3rem;
-    grid-template-areas:
-        "poster info"
-        "watch info";
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: calc(var(--poster-height) * 0.675) 24rem;
+  grid-template-rows: var(--poster-height) 3rem;
+  grid-template-areas:
+    "poster info"
+    "watch info";
 
-    background-color: var(--color-movie-bg);
-    padding: 1rem;
-    margin: 1rem;
-    color: white;
-    box-sizing: border-box;
-    box-shadow: 0 2px 4px #111;
-    border-radius: 0.25rem;
+  background-color: var(--color-movie-bg);
+  padding: 1rem;
+  margin: 1rem;
+  color: white;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px #111;
+  border-radius: 0.25rem;
 }
 
 
@@ -24,14 +24,14 @@
 **********************************************************/
 
 .movie img {
-    grid-area: poster;
-    height: var(--poster-height);
-    width: calc(var(--poster-height) * 0.675);
-    object-fit: contain;
-    background-color: rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-    border-radius: 0.25rem;
-    overflow: hidden;
+  grid-area: poster;
+  height: var(--poster-height);
+  width: calc(var(--poster-height) * 0.675);
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  overflow: hidden;
 }
 
 
@@ -110,7 +110,7 @@
     font-size: 0.8rem;
     font-weight: bold;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 155, 255, 0.2);
     cursor: pointer;
     line-height: 1.25rem;
     transition: all 0.25s ease;

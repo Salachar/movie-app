@@ -4,22 +4,20 @@ const axios = require('axios');
 const OMDB_API_KEY = 46835371;
 const OMDB_API_PARAMS = `type=movie&r=json`;
 const OMDB_BASE_URL = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&${OMDB_API_PARAMS}`;
-
 const MOVIES_TABLE = 'movies';
 
-
 async function hydrateMovie (req, res) {
-    const { id, imdb_id } = req.body;
+  const { id, imdb_id } = req.body;
 
-    let full_movie_response = {};
-    try {
-        const url = `${OMDB_BASE_URL}&i=${imdb_id}`;
-        const response = await axios.get(url);
-        full_movie_response = response.data || {};
-    } catch (err) {
-        console.log(err);
-        full_movie_response = {};
-    }
+  let full_movie_response = {};
+  try {
+    const url = `${OMDB_BASE_URL}&i=${imdb_id}`;
+    const response = await axios.get(url);
+    full_movie_response = response.data || {};
+  } catch (err) {
+    console.log(err);
+    full_movie_response = {};
+  }
 
     try {
         const {
